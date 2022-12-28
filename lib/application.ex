@@ -4,7 +4,8 @@ defmodule Game.Application do
 
     children = [
       {Task.Supervisor, name: Level.TaskSupervisor},
-      LevelState
+      LevelState,
+      Game.Player.Worker
     ]
     opts = [strategy: :one_for_one, name: Level.Supervisor]
     Supervisor.start_link(children, opts)
