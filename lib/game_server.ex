@@ -7,7 +7,6 @@ defmodule GameServer do
   Hello world.
 
   ## Examples
-
       iex> GameServer.hello()
       :world
 
