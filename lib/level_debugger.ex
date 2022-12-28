@@ -1,14 +1,13 @@
 defmodule Game.LevelDebugger do
   def debug(level, [player_x, player_y] = _player) do
     sorted =
-      Enum.sort(level, fn {{x1, y1}, _chuj}, {{x2, y2}, _pizda} ->
+      Enum.sort(level, fn {{x1, y1}, _arg1}, {{x2, y2}, _arg2} ->
         if y1 == y2 do
           x1 <= x2
         else
           y1 <= y2
         end
       end)
-      |> IO.inspect()
 
     Enum.reduce(sorted, nil, fn
       {{x, y}, val} = curr, nil ->
@@ -38,6 +37,6 @@ defmodule Game.LevelDebugger do
     :ok
   end
 
-  defp print(:floor), do: IO.write("  ")
+  defp print(:floor), do: IO.write(" ")
   defp print(:wall), do: IO.write("X")
 end
