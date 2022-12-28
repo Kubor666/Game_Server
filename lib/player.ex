@@ -1,6 +1,5 @@
 defmodule Game.Player do
-
   def current_position do
-    [3,3]
+    [2, 2]
   end
 end

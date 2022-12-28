@@ -14,8 +14,7 @@ defmodule Game.Player.Worker do
 
   def move_up() do
     Agent.update(@name, fn [x, y] ->
-
-      if Map.get(SampleLevel.level, {x, y-1}) |> Game.Fields.can_move?() do
+      if Map.get(SampleLevel.level(), {x, y - 1}) |> Game.Fields.can_move?() do
         [x, y - 1]
       else
         [x, y]
@@ -25,8 +24,7 @@ defmodule Game.Player.Worker do
 
   def move_down() do
     Agent.update(@name, fn [x, y] ->
-
-      if Map.get(SampleLevel.level, {x, y+1}) |> Game.Fields.can_move?() do
+      if Map.get(SampleLevel.level(), {x, y + 1}) |> Game.Fields.can_move?() do
         [x, y + 1]
       else
         [x, y]
@@ -36,9 +34,8 @@ defmodule Game.Player.Worker do
 
   def move_left() do
     Agent.update(@name, fn [x, y] ->
-
-      if Map.get(SampleLevel.level, {x-1 , y}) |> Game.Fields.can_move?() do
-        [x-1 , y]
+      if Map.get(SampleLevel.level(), {x - 1, y}) |> Game.Fields.can_move?() do
+        [x - 1, y]
       else
         [x, y]
       end
@@ -47,9 +44,8 @@ defmodule Game.Player.Worker do
 
   def move_right() do
     Agent.update(@name, fn [x, y] ->
-
-      if Map.get(SampleLevel.level, {x+1 , y}) |> Game.Fields.can_move?() do
-        [x+1 , y]
+      if Map.get(SampleLevel.level(), {x + 1, y}) |> Game.Fields.can_move?() do
+        [x + 1, y]
       else
         [x, y]
       end
